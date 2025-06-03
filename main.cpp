@@ -76,9 +76,29 @@ int main() {
 				}
 			}
 		}else if (menuOption == 8){ // List all Triangles
-
+			cout << "Only Triangles (including Isosceles):" << endl;
+			for (Shape* shape : shapes) {
+				// Triangle includes Isosceles by inheritance
+				Triangle* triangle = dynamic_cast<Triangle*>(shape);
+				if (triangle != nullptr) {
+					cout << shape->ToString() << endl;
+					cout << "\tPerimeter: " << shape->Perimeter() << endl;
+					cout << "\tArea:      " << shape->Area() << endl;
+					cout << endl;
+				}
+			}
 		}else if (menuOption == 9){ // List all Rectangles
-
+			cout << "Only Rectangles (including Squares):" << endl;
+			for (Shape* shape : shapes) {
+				// Square inherits from Rectangle
+				Rectangle* rect = dynamic_cast<Rectangle*>(shape);
+				if (rect != nullptr) {
+					cout << shape->ToString() << endl;
+					cout << "\tPerimeter: " << shape->Perimeter() << endl;
+					cout << "\tArea:      " << shape->Area() << endl;
+					cout << endl;
+				}
+			}
 		}else if (menuOption == 10){ // List all shapes
 			for (Shape* shape: shapes){
 				cout << shape->ToString() << endl;
